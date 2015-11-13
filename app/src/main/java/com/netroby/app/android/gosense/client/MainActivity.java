@@ -1,4 +1,4 @@
-package com.example.root.myapplication;
+package com.netroby.app.android.gosense.client;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         tv2.setText("Hello world, I am glad to see you here");
         TextView tv = (TextView) findViewById(R.id.textView);
         tv.setText("Begin loading files");
-        new DownloadWebpageTask().execute("https://www.netroby.com");
+        new DownloadWebpageTask().execute("https://www.netroby.com/api");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

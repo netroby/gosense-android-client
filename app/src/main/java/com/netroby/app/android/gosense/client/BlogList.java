@@ -1,6 +1,5 @@
-package com.example.root.myapplication;
+package com.netroby.app.android.gosense.client;
 
-import android.app.ListActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
