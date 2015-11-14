@@ -17,10 +17,10 @@ public class BlogList extends AppCompatActivity {
 
 
         List<String> data = new ArrayList<>();
-        data.add("星期天");
-        data.add("早上大家很忙");
-        data.add("没有什么不同");
-        data.add("看不见就算了");
+        data.add("1. 星期天");
+        data.add("2. 早上大家很忙");
+        data.add("3. 没有什么不同");
+        data.add("4. 看不见就算了");
 
 
         ListView lv = (ListView) findViewById(R.id.listView1);
