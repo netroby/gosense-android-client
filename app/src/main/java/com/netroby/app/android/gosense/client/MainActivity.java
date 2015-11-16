@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -35,6 +37,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        List<String> data = new ArrayList<>();
+        data.add("1. 星期天");
+        data.add("2. 早上大家很忙");
+        data.add("3. 没有什么不同");
+        data.add("4. 看不见就算了");
+
+
+        ListView lv = (ListView) findViewById(R.id.listView1);
+        lv.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, data));
+        /**
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         TextView tv2 = (TextView) findViewById(R.id.textView2);
@@ -51,7 +65,9 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+         **/
     }
+
     private class DownloadWebpageTask extends AsyncTask<String, Void, JSONArray> {
         @Override
         protected JSONArray doInBackground(String... urls) {
@@ -67,12 +83,14 @@ public class MainActivity extends AppCompatActivity {
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(JSONArray result) {
+            /**
             TextView tv = (TextView) findViewById(R.id.textView);
             try {
                 tv.setText(result.get(0).toString());
             } catch (Exception e) {
                 Log.d(TAG, "onPostExecute: " + e);
             }
+             */
         }
         private JSONArray downloadUrl(String myurl) throws IOException {
             InputStream is = null;
