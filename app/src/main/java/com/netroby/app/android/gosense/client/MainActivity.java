@@ -1,5 +1,6 @@
 package com.netroby.app.android.gosense.client;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,9 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.JsonReader;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -38,16 +41,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        List<String> data = new ArrayList<>();
-        data.add("1. 星期天");
-        data.add("2. 早上大家很忙");
-        data.add("3. 没有什么不同");
-        data.add("4. 看不见就算了");
-
+        ArrayList<BlogList> blogLists = new ArrayList<>();
+        blogLists.add(new BlogList(133, "This is a test"));
 
         ListView lv = (ListView) findViewById(R.id.listView1);
-        lv.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, data));
+        lv.setAdapter(new BlogListAdapter(this, blogLists));
         /**
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -66,6 +64,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
          **/
+    }
+    private class BlogListAdapter extends ArrayAdapter<BlogList> {
+        public BlogListAdapter(Context context, ArrayList<BlogList> bloglists) {
+            super(context, 0, bloglists);
+        }
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            BlogList b = getItem(position);
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_blog_list, parent, false);
+            }
+            TextView tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
+            tvTitle.setText(b.title);
+            return convertView;
+        }
+    }
+    private class BlogList {
+        public Integer aid;
+        public String title;
+        public BlogList (Integer aid, String title) {
+            this.aid = aid;
+            this.title = title;
+        }
     }
 
     private class DownloadWebpageTask extends AsyncTask<String, Void, JSONArray> {
