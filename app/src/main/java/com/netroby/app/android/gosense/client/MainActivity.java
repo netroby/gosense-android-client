@@ -40,12 +40,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ArrayList<BlogList> blogLists = new ArrayList<>();
-        blogLists.add(new BlogList(133, "This is a test"));
-
-        ListView lv = (ListView) findViewById(R.id.listView1);
-        lv.setAdapter(new BlogListAdapter(this, blogLists));
+        new DownloadWebpageTask().execute("https://www.netroby.com/api");
         /**
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -53,16 +48,8 @@ public class MainActivity extends AppCompatActivity {
         tv2.setText("Hello world, I am glad to see you here");
         TextView tv = (TextView) findViewById(R.id.textView);
         tv.setText("Begin loading files");
-        new DownloadWebpageTask().execute("https://www.netroby.com/api");
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
          **/
     }
     private class BlogListAdapter extends ArrayAdapter<BlogList> {
@@ -104,6 +91,21 @@ public class MainActivity extends AppCompatActivity {
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(JSONArray result) {
+            Log.d(TAG, "Result" + result.toString());
+            ArrayList<BlogList> blogLists = new ArrayList<>();
+            Integer i = 0;
+            for (i = 0; i < result.length(); i++) {
+                try {
+                    JSONObject blog = result.getJSONObject(i);
+                    blogLists.add(new BlogList(blog.getInt("aid"), blog.getString("title")));
+                } catch (Exception e) {
+                    Log.d(TAG, "result get: " + e);
+                }
+            }
+            blogLists.add(new BlogList(133, "This is a test"));
+
+            ListView lv = (ListView) findViewById(R.id.listView1);
+            lv.setAdapter(new BlogListAdapter(MainActivity.this, blogLists));
             /**
             TextView tv = (TextView) findViewById(R.id.textView);
             try {
