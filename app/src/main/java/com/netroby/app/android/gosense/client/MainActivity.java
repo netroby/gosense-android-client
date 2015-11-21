@@ -12,9 +12,12 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.netroby.app.android.gosense.client.model.BlogList;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -64,14 +67,7 @@ public class MainActivity extends AppCompatActivity {
             return convertView;
         }
     }
-    private class BlogList {
-        public Integer aid;
-        public String title;
-        public BlogList (Integer aid, String title) {
-            this.aid = aid;
-            this.title = title;
-        }
-    }
+
 
     private class DownloadWebpageTask extends AsyncTask<String, Void, JSONArray> {
         @Override
@@ -89,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(JSONArray result) {
             Log.d(TAG, "Result" + result.toString());
-            ArrayList<BlogList> blogLists = new ArrayList<>();
+            final ArrayList<BlogList> blogLists = new ArrayList<>();
             Integer i = 0;
             for (i = 0; i < result.length(); i++) {
                 try {
@@ -103,6 +99,13 @@ public class MainActivity extends AppCompatActivity {
 
             ListView lv = (ListView) findViewById(R.id.listView1);
             lv.setAdapter(new BlogListAdapter(MainActivity.this, blogLists));
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    BlogList b = (BlogList) parent.getItemAtPosition(position);
+                    Log.d(TAG, "item pressed " + b.aid);
+                }
+            });
             /**
             TextView tv = (TextView) findViewById(R.id.textView);
             try {
