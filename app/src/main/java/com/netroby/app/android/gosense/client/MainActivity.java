@@ -104,6 +104,9 @@ public class MainActivity extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     BlogList b = (BlogList) parent.getItemAtPosition(position);
                     Log.d(TAG, "item pressed " + b.aid);
+                    Intent intent = new Intent(MainActivity.this, ViewBlogActivity.class);
+                    startActivity(intent);
+
                 }
             });
             /**
