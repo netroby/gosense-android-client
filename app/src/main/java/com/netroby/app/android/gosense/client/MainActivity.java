@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     BlogList b = (BlogList) parent.getItemAtPosition(position);
                     Log.d(TAG, "item pressed " + b.aid);
                     Intent intent = new Intent(MainActivity.this, ViewBlogActivity.class);
+                    intent.putExtra("com.netroby.app.android.gosense.client.MainActivity.aid", b.aid);
                     startActivity(intent);
 
                 }
