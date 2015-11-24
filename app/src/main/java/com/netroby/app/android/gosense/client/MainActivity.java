@@ -110,14 +110,6 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-            /**
-            TextView tv = (TextView) findViewById(R.id.textView);
-            try {
-                tv.setText(result.get(0).toString());
-            } catch (Exception e) {
-                Log.d(TAG, "onPostExecute: " + e);
-            }
-             */
         }
         private JSONArray downloadUrl(String myurl) throws IOException {
             InputStream is = null;
