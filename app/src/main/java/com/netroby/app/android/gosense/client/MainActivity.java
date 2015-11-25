@@ -31,6 +31,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String BLOG_AID = "com.netroby.app.android.gosense.client.MainActivity.AID";
     private static final String TAG = MainActivity.class.getSimpleName();
 
 
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     BlogList b = (BlogList) parent.getItemAtPosition(position);
                     Log.d(TAG, "item pressed " + b.aid);
                     Intent intent = new Intent(MainActivity.this, ViewBlogActivity.class);
-                    intent.putExtra("com.netroby.app.android.gosense.client.MainActivity.aid", b.aid);
+                    intent.putExtra(MainActivity.BLOG_AID, b.aid);
                     startActivity(intent);
 
                 }
@@ -155,10 +156,6 @@ public class MainActivity extends AppCompatActivity {
             }
             return sb.toString();
         }
-    }
-
-    public void jumpToBlogList(View view) {
-        startActivity(new Intent(this, BlogList.class));
     }
 
     @Override

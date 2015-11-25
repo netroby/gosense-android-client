@@ -13,19 +13,12 @@
     tools:showIn="@layout/activity_view_blog">
 
     <TextView
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/blogTitle"
+        android:id="@+id/blogViewContainer"
         android:layout_alignParentTop="true"
-        android:layout_centerInParent="true" />
-
-    <WebView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/webView"
-        android:layout_below="@+id/blogTitle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 </RelativeLayout>
