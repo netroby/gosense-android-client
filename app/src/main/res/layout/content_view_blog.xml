@@ -13,12 +13,26 @@
     tools:showIn="@layout/activity_view_blog">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/blogViewContainer"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/blogTitleView"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:textColor="#000000"
+        android:textSize="24dp"
+        android:textIsSelectable="false"
+        android:textAlignment="center" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/blogViewContainer"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="98dp"
+        android:textColor="#565656" />
+
 </RelativeLayout>

@@ -34,8 +34,6 @@ public class ViewBlogActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_blog);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         Intent intent = getIntent();
         String aid = intent.getStringExtra(MainActivity.BLOG_AID);
 
@@ -62,6 +60,8 @@ public class ViewBlogActivity extends AppCompatActivity {
             TextView tv = (TextView) findViewById(R.id.blogViewContainer);
             try {
                 tv.setText(result.getString("content"));
+                TextView title = (TextView) findViewById(R.id.blogTitleView);
+                title.setText(result.getString("title"));
             } catch (Exception e) {
                 Log.d(TAG, "Error " + e.toString());
             }
