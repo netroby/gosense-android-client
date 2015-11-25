@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     BlogList b = (BlogList) parent.getItemAtPosition(position);
                     Log.d(TAG, "item pressed " + b.aid);
                     Intent intent = new Intent(MainActivity.this, ViewBlogActivity.class);
-                    intent.putExtra(MainActivity.BLOG_AID, b.aid);
+                    intent.putExtra(MainActivity.BLOG_AID, Integer.toString(b.aid));
                     startActivity(intent);
 
                 }
