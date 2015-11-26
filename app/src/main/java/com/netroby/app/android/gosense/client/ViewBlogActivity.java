@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -62,6 +63,7 @@ public class ViewBlogActivity extends AppCompatActivity {
                 tv.setText(result.getString("content"));
                 TextView title = (TextView) findViewById(R.id.blogTitleView);
                 title.setText(result.getString("title"));
+                tv.setMovementMethod(new ScrollingMovementMethod());
             } catch (Exception e) {
                 Log.d(TAG, "Error " + e.toString());
             }

@@ -4,10 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ViewBlogActivity"
     tools:showIn="@layout/activity_view_blog">
@@ -17,22 +13,17 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/blogTitleView"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentStart="false"
         android:textColor="#000000"
         android:textSize="16sp"
         android:textIsSelectable="false"
-        android:textAlignment="center" />
-    <ScrollView
-        android:id="@+id/scrollViewBlog"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:textAlignment="center"
+        android:background="#ffffff" />
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/blogViewContainer"
-        android:layout_marginTop="98dp"
         android:textColor="#565656"
-        android:padding="4dp"/>
-    </ScrollView>
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="26dp" />
 </RelativeLayout>
