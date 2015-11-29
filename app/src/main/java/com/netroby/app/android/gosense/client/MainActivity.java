@@ -14,8 +14,10 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.netroby.app.android.gosense.client.model.BlogList;
 
@@ -44,6 +46,15 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         new DownloadWebpageTask().execute("https://www.netroby.com/api");
+
+        Button prevBtn = (Button) findViewById(R.id.previousPage);
+        prevBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast toast = Toast.makeText(getApplicationContext(), "Yes, i Clicked", Toast.LENGTH_LONG);
+                toast.show();
+            }
+        });
         /**
         TextView tv2 = (TextView) findViewById(R.id.textView2);
         tv2.setText("Hello world, I am glad to see you here");
