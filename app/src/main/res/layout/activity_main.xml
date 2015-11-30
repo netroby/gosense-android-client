@@ -24,20 +24,4 @@
 
     <include layout="@layout/activity_blog_list"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Previous"
-        android:id="@+id/previousPage"
-        android:layout_below="@+id/listView1"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next"
-        android:id="@+id/nextPage"
-        android:layout_below="@+id/listView1"
-        android:layout_toEndOf="@+id/previousPage"
-        android:layout_marginStart="100dp" />
 </android.support.design.widget.CoordinatorLayout>
