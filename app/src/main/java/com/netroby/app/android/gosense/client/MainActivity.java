@@ -34,6 +34,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     public static final String BLOG_AID = "com.netroby.app.android.gosense.client.MainActivity.AID";
+    //Define home index page for main activity
+    public static final String INDEX_PAGE = "com.netroby.app.android.gosense.client.MainActivity.INDEX_PAGE";
     private static final String TAG = MainActivity.class.getSimpleName();
 
 
