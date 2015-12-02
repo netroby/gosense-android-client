@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        
         new DownloadWebpageTask().execute("https://www.netroby.com/api");
 
         Button prevBtn = (Button) findViewById(R.id.previousPage);
@@ -55,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast toast = Toast.makeText(getApplicationContext(), "Yes, i Clicked", Toast.LENGTH_SHORT);
                 toast.show();
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                intent.putExtra(MainActivity.BLOG_AID, Integer.toString(2));
+                startActivity(intent);
             }
         });
 
