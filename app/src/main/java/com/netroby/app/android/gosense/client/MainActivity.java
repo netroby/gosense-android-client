@@ -35,9 +35,9 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     public static final String BLOG_AID = "com.netroby.app.android.gosense.client.MainActivity.AID";
     //Define home index page for main activity
-    public static final String INDEX_PAGE = "com.netroby.app.android.gosense.client.MainActivity.INDEX_PAGE";
+    public static final String INDEX_PAGE = "com.netroby.app.android.gosense.client.MainActivity.INDEXPAGE";
     private static final String TAG = MainActivity.class.getSimpleName();
-
+    public static String INDEXPAGE = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        
-        new DownloadWebpageTask().execute("https://www.netroby.com/api");
+
+        new DownloadWebpageTask().execute("https://www.netroby.com/api" + MainActivity.INDEXPAGE);
 
         Button prevBtn = (Button) findViewById(R.id.previousPage);
         prevBtn.setOnClickListener(new View.OnClickListener() {
