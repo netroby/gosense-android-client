@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     //Define home index page for main activity
     public static final String INDEX_PAGE = "com.netroby.app.android.gosense.client.MainActivity.INDEXPAGE";
     private static final String TAG = MainActivity.class.getSimpleName();
-    public static String INDEXPAGE = "";
+    public static String INDEXPAGE = "1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        new DownloadWebpageTask().execute("https://www.netroby.com/api" + MainActivity.INDEXPAGE);
+        new DownloadWebpageTask().execute("https://www.netroby.com/api?page=" + MainActivity.INDEXPAGE);
 
         Button prevBtn = (Button) findViewById(R.id.previousPage);
         prevBtn.setOnClickListener(new View.OnClickListener() {
