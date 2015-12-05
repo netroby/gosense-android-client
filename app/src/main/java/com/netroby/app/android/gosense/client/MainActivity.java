@@ -46,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        if (Integer.parseInt(MainActivity.INDEXPAGE) <= 0) {
+            MainActivity.INDEXPAGE = "1";
+        }
         new DownloadWebpageTask().execute("https://www.netroby.com/api?page=" + MainActivity.INDEXPAGE);
 
         Button prevBtn = (Button) findViewById(R.id.previousPage);
