@@ -67,8 +67,11 @@ public class MainActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Yes, I Clicked", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), "Yes, i Clicked", Toast.LENGTH_SHORT);
                 toast.show();
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                intent.putExtra(MainActivity.BLOG_AID, Integer.toString(2));
+                startActivity(intent);
             }
         });
         /**
