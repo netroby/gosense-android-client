@@ -57,8 +57,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast toast = Toast.makeText(getApplicationContext(), "Yes, i Clicked", Toast.LENGTH_SHORT);
                 toast.show();
+                Integer oldPage = Integer.parseInt(MainActivity.INDEXPAGE);
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                intent.putExtra(MainActivity.BLOG_AID, Integer.toString(2));
+                intent.putExtra(MainActivity.BLOG_AID, Integer.toString(oldPage - 1));
                 startActivity(intent);
             }
         });
@@ -69,8 +70,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast toast = Toast.makeText(getApplicationContext(), "Yes, i Clicked", Toast.LENGTH_SHORT);
                 toast.show();
+                Integer oldPage = Integer.parseInt(MainActivity.INDEXPAGE);
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                intent.putExtra(MainActivity.BLOG_AID, Integer.toString(2));
+                intent.putExtra(MainActivity.BLOG_AID, Integer.toString(oldPage + 1));
                 startActivity(intent);
             }
         });
