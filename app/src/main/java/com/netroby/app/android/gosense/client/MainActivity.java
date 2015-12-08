@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         prevBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Yes, i Clicked", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), "Go previous page", Toast.LENGTH_SHORT);
                 toast.show();
                 Integer oldPage = Integer.parseInt(MainActivity.INDEXPAGE);
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Yes, i Clicked", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), "Go next page", Toast.LENGTH_SHORT);
                 toast.show();
                 Integer oldPage = Integer.parseInt(MainActivity.INDEXPAGE);
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
