@@ -97,7 +97,11 @@ public class ViewBlogActivity extends AppCompatActivity {
                 Log.d(TAG, "downloadUrl: " + e);
             } finally {
                 if (is != null) {
-                    is.close();
+                    try {
+                        is.close();
+                    } catch (IOException e) {
+                        Log.d(TAG, "The is.close() cleanup got error: " + e.getMessage());
+                    }
                 }
             }
             return new JSONObject();
